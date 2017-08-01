@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		83C638A01F30690100FBC182 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C6389F1F30690100FBC182 /* AppDelegate.swift */; };
-		83C638A21F30690100FBC182 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C638A11F30690100FBC182 /* ViewController.swift */; };
 		83C638A51F30690100FBC182 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83C638A31F30690100FBC182 /* Main.storyboard */; };
 		83C638A71F30690100FBC182 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83C638A61F30690100FBC182 /* Assets.xcassets */; };
 		83C638AA1F30690100FBC182 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83C638A81F30690100FBC182 /* LaunchScreen.storyboard */; };
 		83C638B51F30690100FBC182 /* CodedRecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C638B41F30690100FBC182 /* CodedRecorderTests.swift */; };
 		83C638C01F30690100FBC182 /* CodedRecorderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C638BF1F30690100FBC182 /* CodedRecorderUITests.swift */; };
+		83C638CE1F30699300FBC182 /* DetailRecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C638CD1F30699300FBC182 /* DetailRecorderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 /* Begin PBXFileReference section */
 		83C6389C1F30690100FBC182 /* CodedRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodedRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83C6389F1F30690100FBC182 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		83C638A11F30690100FBC182 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		83C638A41F30690100FBC182 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		83C638A61F30690100FBC182 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83C638A91F30690100FBC182 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		83C638BB1F30690100FBC182 /* CodedRecorderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodedRecorderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83C638BF1F30690100FBC182 /* CodedRecorderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodedRecorderUITests.swift; sourceTree = "<group>"; };
 		83C638C11F30690100FBC182 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83C638CD1F30699300FBC182 /* DetailRecorderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRecorderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +83,7 @@
 				83C6389D1F30690100FBC182 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		83C6389D1F30690100FBC182 /* Products */ = {
 			isa = PBXGroup;
@@ -98,7 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				83C6389F1F30690100FBC182 /* AppDelegate.swift */,
-				83C638A11F30690100FBC182 /* ViewController.swift */,
+				83C638CD1F30699300FBC182 /* DetailRecorderViewController.swift */,
 				83C638A31F30690100FBC182 /* Main.storyboard */,
 				83C638A61F30690100FBC182 /* Assets.xcassets */,
 				83C638A81F30690100FBC182 /* LaunchScreen.storyboard */,
@@ -262,8 +263,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83C638A21F30690100FBC182 /* ViewController.swift in Sources */,
 				83C638A01F30690100FBC182 /* AppDelegate.swift in Sources */,
+				83C638CE1F30699300FBC182 /* DetailRecorderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
