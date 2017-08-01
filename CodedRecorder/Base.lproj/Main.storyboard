@@ -39,6 +39,9 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Uwh-jX-erQ" secondAttribute="bottom" constant="134" id="oiO-jK-vED"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="recordButton" destination="Uwh-jX-erQ" id="xdM-0x-e0Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
