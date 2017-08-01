@@ -26,10 +26,13 @@ class DetailRecorderViewController: UIViewController, AVAudioRecorderDelegate {
         do {
             try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
             try recordingSession.setActive(true)
+            
+            // Must request permission for access to microphone
             recordingSession.requestRecordPermission() { [unowned self] allowed in
                 DispatchQueue.main.async {
                     if allowed {
-//                        self.loadRecordingUI()
+                        // Show record button
+                        self.recordButton.alpha = 1
                     } else {
                         // failed to record!
                     }
