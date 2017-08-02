@@ -13,14 +13,17 @@ import AVFoundation
 class DetailRecorderViewController: UIViewController, AVAudioRecorderDelegate {
 
     @IBOutlet weak var recordButton: UIButton!
+    @IBOutlet weak var playAudioButton: UIButton!
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
+    var audioPlayer: AVAudioPlayer!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.recordButton.alpha = 0
+        recordButton.alpha = 0
+        playAudioButton.alpha = 0
         
         // Instantiate the main default recordingSession
         recordingSession = AVAudioSession.sharedInstance()
@@ -49,7 +52,7 @@ class DetailRecorderViewController: UIViewController, AVAudioRecorderDelegate {
     // Method called to begin recording audio
     func startRecording() {
         // Retrieve the file location in memory we allocated
-        let audioFilename = AudioController.sharedInstance.createNewAudioFileLocation(specificFileString: "New")
+        let audioFilename = AudioController.sharedInstance.getAudioFileLocationFromString(specificFileString: "New")
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -69,6 +72,10 @@ class DetailRecorderViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
+    
+    // MARK: - BUTTON ACTIONS
+    
+    // Record
     @IBAction func recordButtonTapped(_ sender: Any) {
         if audioRecorder == nil {
             startRecording()
@@ -76,7 +83,22 @@ class DetailRecorderViewController: UIViewController, AVAudioRecorderDelegate {
             finishRecording(success: true)
         }
     }
-
+    
+    // Listen
+    @IBAction func playAudioButtonTapped(_ sender: Any) {
+        
+        let audioFileURL = AudioController.sharedInstance.getAudioFileLocationFromString(specificFileString: "New")
+        
+        do {
+            let sound = try AVAudioPlayer(contentsOf: audioFileURL)
+            audioPlayer = sound
+            sound.play()
+        } catch {
+            // couldn't load file :(
+        }
+    }
+    
+    
     func finishRecording(success: Bool) {
         audioRecorder.stop()
         audioRecorder = nil

@@ -15,6 +15,7 @@
 		83C638C01F30690100FBC182 /* CodedRecorderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C638BF1F30690100FBC182 /* CodedRecorderUITests.swift */; };
 		83C638CE1F30699300FBC182 /* DetailRecorderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C638CD1F30699300FBC182 /* DetailRecorderViewController.swift */; };
 		83C638D01F31E52F00FBC182 /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C638CF1F31E52F00FBC182 /* AudioController.swift */; };
+		83C638D21F31EF3700FBC182 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C638D11F31EF3700FBC182 /* HomeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		83C638C11F30690100FBC182 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83C638CD1F30699300FBC182 /* DetailRecorderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRecorderViewController.swift; sourceTree = "<group>"; };
 		83C638CF1F31E52F00FBC182 /* AudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
+		83C638D11F31EF3700FBC182 /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +103,9 @@
 			isa = PBXGroup;
 			children = (
 				83C6389F1F30690100FBC182 /* AppDelegate.swift */,
-				83C638CD1F30699300FBC182 /* DetailRecorderViewController.swift */,
 				83C638A31F30690100FBC182 /* Main.storyboard */,
+				83C638D11F31EF3700FBC182 /* HomeTableViewController.swift */,
+				83C638CD1F30699300FBC182 /* DetailRecorderViewController.swift */,
 				83C638CF1F31E52F00FBC182 /* AudioController.swift */,
 				83C638A61F30690100FBC182 /* Assets.xcassets */,
 				83C638A81F30690100FBC182 /* LaunchScreen.storyboard */,
@@ -266,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83C638D21F31EF3700FBC182 /* HomeTableViewController.swift in Sources */,
 				83C638A01F30690100FBC182 /* AppDelegate.swift in Sources */,
 				83C638D01F31E52F00FBC182 /* AudioController.swift in Sources */,
 				83C638CE1F30699300FBC182 /* DetailRecorderViewController.swift in Sources */,

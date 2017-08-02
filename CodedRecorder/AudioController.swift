@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AVFoundation
 
 // Managers the where we will store the audio files on the device
 class AudioController {
@@ -14,7 +15,7 @@ class AudioController {
     static let sharedInstance = AudioController()
     
     // To save on the device, we use a file URL
-    // (similar format to what you would find on 
+    // (similar format to what you would find on
     // your computer or the internet)
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -22,11 +23,13 @@ class AudioController {
         return documentsDirectory
     }
     
-    
-    func createNewAudioFileLocation(specificFileString:String) -> URL {
+    // New Recording
+    func getAudioFileLocationFromString(specificFileString:String) -> URL {
         let audioFilename = getDocumentsDirectory().appendingPathComponent("\(specificFileString).recording.m4a")
         return audioFilename
     }
+   
+    
 }
 
 
