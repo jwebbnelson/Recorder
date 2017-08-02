@@ -25,7 +25,7 @@ class AudioController {
     
     // New Recording
     func getAudioFileLocationFromString(specificFileString:String) -> URL {
-        let audioFilename = getDocumentsDirectory().appendingPathComponent("\(specificFileString).recording.m4a")
+        let audioFilename = getDocumentsDirectory().appendingPathComponent("\(specificFileString).m4a")
         return audioFilename
     }
    

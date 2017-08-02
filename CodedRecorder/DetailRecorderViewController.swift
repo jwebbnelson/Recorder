@@ -23,7 +23,7 @@ class DetailRecorderViewController: UIViewController, AVAudioRecorderDelegate {
         super.viewDidLoad()
         
         recordButton.alpha = 0
-        playAudioButton.alpha = 0
+//        playAudioButton.alpha = 0
         
         // Instantiate the main default recordingSession
         recordingSession = AVAudioSession.sharedInstance()
@@ -64,7 +64,7 @@ class DetailRecorderViewController: UIViewController, AVAudioRecorderDelegate {
         do {
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder.delegate = self
-//            audioRecorder.record()
+            audioRecorder.record()
             
             recordButton.setTitle("Tap to Stop", for: .normal)
         } catch {
