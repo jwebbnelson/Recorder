@@ -20,6 +20,8 @@ class DetailRecorderViewController: UIViewController, AVAudioRecorderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.recordButton.alpha = 0
+        
         // Instantiate the main default recordingSession
         recordingSession = AVAudioSession.sharedInstance()
         
@@ -44,8 +46,10 @@ class DetailRecorderViewController: UIViewController, AVAudioRecorderDelegate {
 
     }
     
+    // Method called to begin recording audio
     func startRecording() {
-        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.m4a")
+        // Retrieve the file location in memory we allocated
+        let audioFilename = AudioController.sharedInstance.createNewAudioFileLocation(specificFileString: "New")
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -57,20 +61,13 @@ class DetailRecorderViewController: UIViewController, AVAudioRecorderDelegate {
         do {
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder.delegate = self
-            audioRecorder.record()
+//            audioRecorder.record()
             
             recordButton.setTitle("Tap to Stop", for: .normal)
         } catch {
             finishRecording(success: false)
         }
     }
-    
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
-    }
-
     
     @IBAction func recordButtonTapped(_ sender: Any) {
         if audioRecorder == nil {
@@ -87,8 +84,8 @@ class DetailRecorderViewController: UIViewController, AVAudioRecorderDelegate {
         if success {
             recordButton.setTitle("Tap to Re-record", for: .normal)
         } else {
-            recordButton.setTitle("Tap to Record", for: .normal)
             // recording failed :(
+            recordButton.setTitle("Tap to Record", for: .normal)
         }
     }
     
