@@ -12,8 +12,10 @@ import AVFoundation
 
 class DetailRecorderViewController: UIViewController, AVAudioRecorderDelegate {
 
+    @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var playAudioButton: UIButton!
+    
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     var audioPlayer: AVAudioPlayer!
@@ -23,7 +25,7 @@ class DetailRecorderViewController: UIViewController, AVAudioRecorderDelegate {
         super.viewDidLoad()
         
         recordButton.alpha = 0
-//        playAudioButton.alpha = 0
+
         
         // Instantiate the main default recordingSession
         recordingSession = AVAudioSession.sharedInstance()
@@ -51,8 +53,11 @@ class DetailRecorderViewController: UIViewController, AVAudioRecorderDelegate {
     
     // Method called to begin recording audio
     func startRecording() {
+        
+        guard let title = titleTextField.text else { return }
+        
         // Retrieve the file location in memory we allocated
-        let audioFilename = AudioController.sharedInstance.getAudioFileLocationFromString(specificFileString: "New")
+        let audioFilename = AudioController.sharedInstance.getAudioFileLocationFromString(specificFileString: title)
         
         let settings = [
             AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
@@ -87,7 +92,9 @@ class DetailRecorderViewController: UIViewController, AVAudioRecorderDelegate {
     // Listen
     @IBAction func playAudioButtonTapped(_ sender: Any) {
         
-        let audioFileURL = AudioController.sharedInstance.getAudioFileLocationFromString(specificFileString: "New")
+        guard let title = titleTextField.text else { return }
+        
+        let audioFileURL = AudioController.sharedInstance.getAudioFileLocationFromString(specificFileString: title)
         
         do {
             let sound = try AVAudioPlayer(contentsOf: audioFileURL)
@@ -95,9 +102,9 @@ class DetailRecorderViewController: UIViewController, AVAudioRecorderDelegate {
             sound.play()
         } catch {
             // couldn't load file :(
+            
         }
     }
-    
     
     func finishRecording(success: Bool) {
         audioRecorder.stop()
@@ -119,6 +126,7 @@ class DetailRecorderViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
+ 
     
 
 }

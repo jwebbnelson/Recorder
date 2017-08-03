@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Detail Recorder View Controller-->
+        <!--New Recording-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="DetailRecorderViewController" customModule="CodedRecorder" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,24 +37,35 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2c-Vt-Yil">
                                 <rect key="frame" x="16" y="556" width="343" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Play Audio"/>
                                 <connections>
                                     <action selector="playAudioButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2lP-nv-e3Y"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S9P-Tb-FoU">
+                                <rect key="frame" x="16" y="103" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="S9P-Tb-FoU" firstAttribute="leading" secondItem="Uwh-jX-erQ" secondAttribute="leading" id="44E-dr-O6b"/>
                             <constraint firstItem="o2c-Vt-Yil" firstAttribute="top" secondItem="Uwh-jX-erQ" secondAttribute="bottom" constant="23" id="AeO-ob-7cM"/>
                             <constraint firstItem="Uwh-jX-erQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="La9-23-VXE"/>
+                            <constraint firstItem="S9P-Tb-FoU" firstAttribute="trailing" secondItem="Uwh-jX-erQ" secondAttribute="trailing" id="akH-VC-5x4"/>
+                            <constraint firstItem="S9P-Tb-FoU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="39" id="ohE-vI-udp"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Uwh-jX-erQ" secondAttribute="bottom" constant="134" id="oiO-jK-vED"/>
                             <constraint firstItem="o2c-Vt-Yil" firstAttribute="leading" secondItem="Uwh-jX-erQ" secondAttribute="leading" id="tGC-Fd-wcV"/>
                             <constraint firstItem="o2c-Vt-Yil" firstAttribute="trailing" secondItem="Uwh-jX-erQ" secondAttribute="trailing" id="ujm-VI-pKc"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="New Recording" id="VZD-aX-AbD"/>
                     <connections>
                         <outlet property="playAudioButton" destination="o2c-Vt-Yil" id="43R-tx-lBv"/>
                         <outlet property="recordButton" destination="Uwh-jX-erQ" id="xdM-0x-e0Z"/>
+                        <outlet property="titleTextField" destination="S9P-Tb-FoU" id="uRm-za-2VF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -90,7 +101,7 @@
                         <view key="tableFooterView" contentMode="scaleToFill" id="Arh-eZ-Dqm">
                             <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCell" id="QLa-Fn-8JE">
@@ -110,11 +121,21 @@
                             <outlet property="delegate" destination="mSQ-Tr-SGv" id="HkA-Qg-gma"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Recorder" id="fMk-8y-gnN"/>
+                    <navigationItem key="navigationItem" title="Recorder" id="2tg-5C-FEX">
+                        <barButtonItem key="backBarButtonItem" title="Home" id="FgF-J1-c5y"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="TOt-QJ-uwp">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="addRecordSegue" id="cbz-V4-LfA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vpX-nT-HA0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="156" y="139"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="cbz-V4-LfA"/>
+    </inferredMetricsTieBreakers>
 </document>
