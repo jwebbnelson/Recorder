@@ -61,7 +61,13 @@
                             <constraint firstItem="o2c-Vt-Yil" firstAttribute="trailing" secondItem="Uwh-jX-erQ" secondAttribute="trailing" id="ujm-VI-pKc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New Recording" id="VZD-aX-AbD"/>
+                    <navigationItem key="navigationItem" title="New Recording" id="Qcd-m8-OQh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="neU-oR-cO9">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="BYZ-38-t0r" id="enw-ck-feT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="playAudioButton" destination="o2c-Vt-Yil" id="43R-tx-lBv"/>
                         <outlet property="recordButton" destination="Uwh-jX-erQ" id="xdM-0x-e0Z"/>

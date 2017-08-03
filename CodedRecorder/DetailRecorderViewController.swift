@@ -111,6 +111,22 @@ class DetailRecorderViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        
+        guard let title = titleTextField.text else { return }
+
+       // If current title, we know we are updating
+        if let currentRecordingTitle = currentRecordingTitle {
+            AudioController.sharedInstance.updateRecordTitle(oldTitle: currentRecordingTitle, newTitle: title)
+        } else {
+            // If no title existing, we are creating a new recording
+            AudioController.sharedInstance.createNewRecord(title: title)
+        }
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
     func finishRecording(success: Bool) {
         audioRecorder.stop()
         audioRecorder = nil
