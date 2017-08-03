@@ -41,7 +41,7 @@ class AudioController {
         let audioFilename = getDocumentsDirectory().appendingPathComponent("\(specificFileString).m4a")
         return audioFilename
     }
-   
+    
     // MARK: - ADD, UPDATE, REMOVE RECORDING TITLES
     
     // Adds string to recordTitles
@@ -67,7 +67,6 @@ class AudioController {
     
     func removeTitle(title:String) {
         
-        // Find where the player is in the list
         if let index = recordingTitles.index(of: title) {
             recordingTitles.remove(at: index)
             // NSUSERDEFAULTS

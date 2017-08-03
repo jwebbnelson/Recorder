@@ -20,11 +20,16 @@ class DetailRecorderViewController: UIViewController, AVAudioRecorderDelegate {
     var audioRecorder: AVAudioRecorder!
     var audioPlayer: AVAudioPlayer!
     
+    var currentRecordingTitle:String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         recordButton.alpha = 0
+        if let currentRecordingTitle = currentRecordingTitle {
+            titleTextField.text = currentRecordingTitle
+        }
 
         
         // Instantiate the main default recordingSession
